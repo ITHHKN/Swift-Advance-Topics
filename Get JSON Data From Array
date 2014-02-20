@@ -1,0 +1,61 @@
+1- SendTheJSONRequest.php
+===========================
+
+<html>
+<head>
+<title>the title</title>
+   <script type="text/javascript" 
+   src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+   <script type="text/javascript" language="javascript">
+   $(document).ready(function() {
+      $("#driver").click(function(event){
+          
+          $.getJSON('JsonArray.php', function(jd) {
+              
+             $('#UserName').html('<p> Name: ' + jd.username + '</p>');
+             $('#pass').append('<p>pass : ' + jd.pass+ '</p>');
+             $('#Email').append('<p> Email: ' + jd.email+ '</p>');
+          });
+      });
+   });
+   </script>
+</head>
+<body>
+   <p>Click on the button to load result.json file:</p>
+   <div id="stage">
+       <div id="UserName"></div>
+       <div id="pass"></div>
+       <div id="Email"></div>
+   </div>
+   <input type="button" id="driver" value="Load Data" />
+</body>
+</html>
+========================================================
+
+2 - JsonArray VIA PHP 
+
+<?php
+
+
+$values = array(
+"username" => 'Hasain',
+"pass"  =>'Haider',
+"email" => 'khan@yahoo.com');
+
+
+echo json_encode($values);
+?>
+========================================================
+3- JsonArray VIA JSON Format Data
+
+{
+    
+
+"username": "Zara Ali",
+"pass" : "67",
+"email": "female"
+
+}
+
+
+
